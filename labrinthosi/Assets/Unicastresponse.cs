@@ -26,8 +26,7 @@ public class Unicastresponse : MonoBehaviour
         errortext.GetComponent<TextMeshProUGUI>();
         errortext.enabled = false;
 
-        if (text1.text == "Please select communication type.")
-        {
+        if (text1.text == "Please select communication type.") {
             text1.SetText("Reply received. Click inspect button to see contents.");
         }
         else
