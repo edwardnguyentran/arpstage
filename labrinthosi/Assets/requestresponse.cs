@@ -33,7 +33,7 @@ public class requestresponse : MonoBehaviour
 
         if (text1.text == "ARP Protocol Online") {
             text1.SetText("Please select communication type.");
-            text1.text = "Please select communication type";
+            text1.text = "Please select communication type.";
         }
         else
         {

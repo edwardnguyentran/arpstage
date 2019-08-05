@@ -4,10 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Okresponse : Inspectresponse
+public class Okresponse : MonoBehaviour
 {
-    //public TextMeshProUGUI text1;
-    //public TextMeshProUGUI errortext;
+    public TextMeshProUGUI text1;
+    public TextMeshProUGUI errortext;
     // Start is called before the first frame update
     void Start()
     {

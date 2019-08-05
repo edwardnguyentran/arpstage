@@ -5,10 +5,10 @@ using TMPro;
 using UnityEngine.UI;
 
 
-public class Discardresponse : Unicastresponse
+public class Discardresponse : MonoBehaviour
 {
-    //public TextMeshProUGUI text1;
-    //public TextMeshProUGUI errortext;
+    public TextMeshProUGUI text1;
+    public TextMeshProUGUI errortext;
     // Start is called before the first frame update
     void Start()
     {
