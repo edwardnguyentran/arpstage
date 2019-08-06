@@ -15,11 +15,6 @@ public class ack1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        title1.enabled = false;
-        title2.enabled = false;
-        title3.enabled = false;
-        title4.enabled = false;
-        errortext.enabled = false;
     }
 
     // Update is called once per frame
