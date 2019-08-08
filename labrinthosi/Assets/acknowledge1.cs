@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
-public class offer1 : MonoBehaviour
+public class acknowledge1 : MonoBehaviour
 {
     public TextMeshProUGUI errortext;
     public TextMeshProUGUI title1;
@@ -35,7 +34,6 @@ public class offer1 : MonoBehaviour
     public GameObject disbox;
     public GameObject recbox;
     public GameObject rec2box;
-    public Button offerbutton;
 
 
     // Start is called before the first frame update
@@ -46,7 +44,6 @@ public class offer1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        offerbutton.GetComponent<broadcast1>();
         errortext.GetComponent<TextMeshProUGUI>();
         title1.GetComponent<TextMeshProUGUI>();
         title2.GetComponent<TextMeshProUGUI>();
@@ -78,7 +75,7 @@ public class offer1 : MonoBehaviour
         rec2box.GetComponent<GameObject>();
     }
 
-    public void offerClick()
+    public void ackClick()
     {
         errortext.GetComponent<TextMeshProUGUI>();
         title1.GetComponent<TextMeshProUGUI>();
@@ -110,16 +107,16 @@ public class offer1 : MonoBehaviour
         recbox.GetComponent<GameObject>();
         rec2box.GetComponent<GameObject>();
 
-        if (title1.enabled == true && title2.enabled == false && title3.enabled == false && title4.enabled == false)
+        if (title1.enabled == false && title2.enabled == false && title3.enabled == true && title4.enabled == false)
         {
-            title1.enabled = false;
-            title2.enabled = true;
+            title3.enabled = false;
+            title4.enabled = true;
             errortext.enabled = false;
-            found1.enabled = false;
-            foundbox1.GetComponent<Renderer>().enabled = false;
             mdrop.enabled = false;
             mdropbox3.GetComponent<Renderer>().enabled = false;
-            StartCoroutine(step2());
+            rec2.enabled = false;
+            rec2box.GetComponent<Renderer>().enabled = false;
+            StartCoroutine(step4());
         }
         else
         {
@@ -127,13 +124,13 @@ public class offer1 : MonoBehaviour
         }
     }
 
-    IEnumerator step2()
+    IEnumerator step4()
     {
-        ip1.enabled = true;
-        ipbox2.GetComponent<Renderer>().enabled = true;
-        yield return new WaitForSeconds(3);
-        ip1.enabled = false;
-        ipbox2.GetComponent<Renderer>().enabled = false;
+        ack1.enabled = true;
+        ackbox.GetComponent<Renderer>().enabled = true;
+        yield return new WaitForSeconds(2);
+        ack1.enabled = false;
+        ackbox.GetComponent<Renderer>().enabled = false;
         line8.GetComponent<Renderer>().material.color = new Color(0, 1, 0);
         yield return new WaitForSeconds(.7f);
         line8.GetComponent<Renderer>().material.color = new Color(255, 255, 255);
