@@ -35,7 +35,6 @@ public class offer1 : MonoBehaviour
     public GameObject disbox;
     public GameObject recbox;
     public GameObject rec2box;
-    public Button offerbutton;
 
 
     // Start is called before the first frame update
@@ -46,7 +45,6 @@ public class offer1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        offerbutton.GetComponent<broadcast1>();
         errortext.GetComponent<TextMeshProUGUI>();
         title1.GetComponent<TextMeshProUGUI>();
         title2.GetComponent<TextMeshProUGUI>();
