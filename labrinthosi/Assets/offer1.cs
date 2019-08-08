@@ -19,6 +19,7 @@ public class offer1 : MonoBehaviour
     public TextMeshProUGUI dis1;
     public TextMeshProUGUI rec1;
     public TextMeshProUGUI rec2;
+    public TextMeshProUGUI control;
     public GameObject line1;
     public GameObject line2;
     public GameObject line3;
@@ -45,6 +46,7 @@ public class offer1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        control.GetComponent<TextMeshProUGUI>();
         errortext.GetComponent<TextMeshProUGUI>();
         title1.GetComponent<TextMeshProUGUI>();
         title2.GetComponent<TextMeshProUGUI>();
@@ -78,6 +80,7 @@ public class offer1 : MonoBehaviour
 
     public void offerClick()
     {
+        control.GetComponent<TextMeshProUGUI>();
         errortext.GetComponent<TextMeshProUGUI>();
         title1.GetComponent<TextMeshProUGUI>();
         title2.GetComponent<TextMeshProUGUI>();
@@ -108,7 +111,7 @@ public class offer1 : MonoBehaviour
         recbox.GetComponent<GameObject>();
         rec2box.GetComponent<GameObject>();
 
-        if (title1.enabled == true && title2.enabled == false && title3.enabled == false && title4.enabled == false)
+        if (title1.enabled == true && title2.enabled == false && title3.enabled == false && title4.enabled == false && control.enabled == false)
         {
             title1.enabled = false;
             title2.enabled = true;
@@ -119,6 +122,10 @@ public class offer1 : MonoBehaviour
             mdropbox3.GetComponent<Renderer>().enabled = false;
             StartCoroutine(step2());
         }
+        else if (title1.enabled == true && title2.enabled == false && title3.enabled == false && title4.enabled == false && control.enabled == true)
+        {
+           
+        }
         else
         {
             errortext.enabled = true;
@@ -127,6 +134,7 @@ public class offer1 : MonoBehaviour
 
     IEnumerator step2()
     {
+        control.enabled = true;
         ip1.enabled = true;
         ipbox2.GetComponent<Renderer>().enabled = true;
         yield return new WaitForSeconds(3);
@@ -157,5 +165,6 @@ public class offer1 : MonoBehaviour
         mdropbox3.GetComponent<Renderer>().enabled = true;
         rec1.enabled = true;
         recbox.GetComponent<Renderer>().enabled = true;
+        control.enabled = false;
     }
 }

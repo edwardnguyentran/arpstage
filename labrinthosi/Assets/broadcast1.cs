@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class broadcast1 : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class broadcast1 : MonoBehaviour
     public TextMeshProUGUI dis1;
     public TextMeshProUGUI rec1;
     public TextMeshProUGUI rec2;
+    public TextMeshProUGUI control;
     public GameObject line1;
     public GameObject line2;
     public GameObject line3;
@@ -39,6 +41,7 @@ public class broadcast1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        control.enabled = false;
         title1.enabled = false;
         title2.enabled = false;
         title3.enabled = false;
@@ -78,6 +81,7 @@ public class broadcast1 : MonoBehaviour
         dis1.GetComponent<TextMeshProUGUI>();
         rec1.GetComponent<TextMeshProUGUI>();
         rec2.GetComponent<TextMeshProUGUI>();
+        control.GetComponent<TextMeshProUGUI>();
         line1.GetComponent<GameObject>();
         line2.GetComponent<GameObject>();
         line3.GetComponent<GameObject>();
@@ -111,6 +115,7 @@ public class broadcast1 : MonoBehaviour
         dis1.GetComponent<TextMeshProUGUI>();
         rec1.GetComponent<TextMeshProUGUI>();
         rec2.GetComponent<TextMeshProUGUI>();
+        control.GetComponent<TextMeshProUGUI>();
         line1.GetComponent<GameObject>();
         line2.GetComponent<GameObject>();
         line3.GetComponent<GameObject>();
@@ -129,11 +134,14 @@ public class broadcast1 : MonoBehaviour
         rec2box.GetComponent<GameObject>();
 
 
-        if (title1.enabled == false && title2.enabled == false && title3.enabled == false && title4.enabled == false)
+        if (title1.enabled == false && title2.enabled == false && title3.enabled == false && title4.enabled == false && control.enabled == false)
         {
             title1.enabled = true;
             errortext.enabled = false;
             StartCoroutine(step1());
+        }
+        else if (title1.enabled == false && title2.enabled == false && title3.enabled == false && title4.enabled == false && control.enabled == true)
+        {
         }
         else
         {
@@ -143,6 +151,7 @@ public class broadcast1 : MonoBehaviour
 
     IEnumerator step1()
     {
+        control.enabled = true;
         dis1.enabled = true;
         disbox.GetComponent<Renderer>().enabled = true;
         yield return new WaitForSeconds(3);
@@ -174,5 +183,6 @@ public class broadcast1 : MonoBehaviour
         line6.GetComponent<Renderer>().material.color = new Color(255, 255, 255);
         mdrop.enabled = true;
         mdropbox3.GetComponent<Renderer>().enabled = true;
+        control.enabled = false;
     }
 }

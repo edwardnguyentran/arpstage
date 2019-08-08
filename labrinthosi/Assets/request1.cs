@@ -18,6 +18,7 @@ public class request1 : MonoBehaviour
     public TextMeshProUGUI dis1;
     public TextMeshProUGUI rec1;
     public TextMeshProUGUI rec2;
+    public TextMeshProUGUI control;
     public GameObject line1;
     public GameObject line2;
     public GameObject line3;
@@ -43,6 +44,7 @@ public class request1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        control.GetComponent<TextMeshProUGUI>();
         errortext.GetComponent<TextMeshProUGUI>();
         title1.GetComponent<TextMeshProUGUI>();
         title2.GetComponent<TextMeshProUGUI>();
@@ -76,6 +78,7 @@ public class request1 : MonoBehaviour
 
     public void requestClick()
     {
+        control.GetComponent<TextMeshProUGUI>();
         errortext.GetComponent<TextMeshProUGUI>();
         title1.GetComponent<TextMeshProUGUI>();
         title2.GetComponent<TextMeshProUGUI>();
@@ -107,7 +110,7 @@ public class request1 : MonoBehaviour
         rec2box.GetComponent<GameObject>();
 
 
-        if (title1.enabled == false && title2.enabled == true && title3.enabled == false && title4.enabled == false)
+        if (title1.enabled == false && title2.enabled == true && title3.enabled == false && title4.enabled == false && control.enabled == false)
         {
             title2.enabled = false;
             title3.enabled = true;
@@ -118,6 +121,10 @@ public class request1 : MonoBehaviour
             recbox.GetComponent<Renderer>().enabled = false;
             StartCoroutine(step3());
         }
+        else if (title1.enabled == false && title2.enabled == true && title3.enabled == false && title4.enabled == false && control.enabled == true)
+        {
+            
+        }
         else
         {
             errortext.enabled = true;
@@ -126,6 +133,7 @@ public class request1 : MonoBehaviour
 
     IEnumerator step3()
     {
+        control.enabled = true;
         req1.enabled = true;
         reqbox.GetComponent<Renderer>().enabled = true;
         yield return new WaitForSeconds(2);
@@ -157,5 +165,6 @@ public class request1 : MonoBehaviour
         line6.GetComponent<Renderer>().material.color = new Color(255, 255, 255);
         mdrop.enabled = true;
         mdropbox3.GetComponent<Renderer>().enabled = true;
+        control.enabled = false;
     }
 }

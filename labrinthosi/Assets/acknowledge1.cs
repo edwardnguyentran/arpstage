@@ -18,6 +18,7 @@ public class acknowledge1 : MonoBehaviour
     public TextMeshProUGUI dis1;
     public TextMeshProUGUI rec1;
     public TextMeshProUGUI rec2;
+	public TextMeshProUGUI control;
     public GameObject line1;
     public GameObject line2;
     public GameObject line3;
@@ -44,7 +45,8 @@ public class acknowledge1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        errortext.GetComponent<TextMeshProUGUI>();
+		control.GetComponent<TextMeshProUGUI>();
+		errortext.GetComponent<TextMeshProUGUI>();
         title1.GetComponent<TextMeshProUGUI>();
         title2.GetComponent<TextMeshProUGUI>();
         title3.GetComponent<TextMeshProUGUI>();
@@ -77,7 +79,8 @@ public class acknowledge1 : MonoBehaviour
 
     public void ackClick()
     {
-        errortext.GetComponent<TextMeshProUGUI>();
+		control.GetComponent<TextMeshProUGUI>();
+		errortext.GetComponent<TextMeshProUGUI>();
         title1.GetComponent<TextMeshProUGUI>();
         title2.GetComponent<TextMeshProUGUI>();
         title3.GetComponent<TextMeshProUGUI>();
@@ -107,7 +110,7 @@ public class acknowledge1 : MonoBehaviour
         recbox.GetComponent<GameObject>();
         rec2box.GetComponent<GameObject>();
 
-        if (title1.enabled == false && title2.enabled == false && title3.enabled == true && title4.enabled == false)
+        if (title1.enabled == false && title2.enabled == false && title3.enabled == true && title4.enabled == false && control.enabled == false)
         {
             title3.enabled = false;
             title4.enabled = true;
@@ -118,7 +121,11 @@ public class acknowledge1 : MonoBehaviour
             rec2box.GetComponent<Renderer>().enabled = false;
             StartCoroutine(step4());
         }
-        else
+		else if (title1.enabled == false && title2.enabled == false && title3.enabled == true && title4.enabled == false && control.enabled == true)
+		{
+		
+		}
+		else
         {
             errortext.enabled = true;
         }
@@ -126,6 +133,7 @@ public class acknowledge1 : MonoBehaviour
 
     IEnumerator step4()
     {
+		control.enabled = true;
         ack1.enabled = true;
         ackbox.GetComponent<Renderer>().enabled = true;
         yield return new WaitForSeconds(2);
@@ -156,5 +164,6 @@ public class acknowledge1 : MonoBehaviour
         mdropbox3.GetComponent<Renderer>().enabled = true;
         rec1.enabled = true;
         recbox.GetComponent<Renderer>().enabled = true;
+		control.enabled = false;
     }
 }
